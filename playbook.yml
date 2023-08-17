@@ -1,0 +1,6 @@
+- hosts: docker-container
+  tasks:
+    - name: create .config directory
+      file:
+        path: "{{ansible_env.HOME}}/.config"
+        state: directory
