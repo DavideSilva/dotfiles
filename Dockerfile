@@ -1,6 +1,10 @@
 FROM ubuntu:latest
 
-RUN apt update && apt install -y ssh sudo bash zsh ansible neovim
+RUN ln -snf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime && echo "Europe/Lisbon" > /etc/timezone
+
+RUN apt update && apt install -y ssh sudo bash zsh ansible ruby ruby-dev git curl fzf ripgrep fd-find make gcc g++ software-properties-common
+
+RUN add-apt-repository ppa:neovim-ppa/unstable && apt update && apt install -y neovim
 
 RUN rm -rf /var/cache/apt/*
 

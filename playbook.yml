@@ -1,6 +1,4 @@
-- hosts: docker-container
-  tasks:
-    - name: create .config directory
-      file:
-        path: "{{ansible_env.HOME}}/.config"
-        state: directory
+- hosts: all
+  roles:
+    - { role: 'common', tags: 'shell' }
+    - { role: 'neovim', tags: 'neovim' }

@@ -1,0 +1,5 @@
+- name: link neovim config
+  file:
+    src: '{{ansible_env.PWD}}/roles/neovim/files/nvim'
+    dest: '{{ansible_env.HOME}}/.config/nvim'
+    state: link
