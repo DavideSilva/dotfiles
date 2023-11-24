@@ -1,0 +1,15 @@
+- name: link .tool-versions
+  file:
+    src: '{{ansible_env.PWD}}/roles/asdf/files/tool-versions'
+    dest: '{{ansible_env.HOME}}/.tool-versions'
+    state: link
+
+- name: add asdf plugins
+  shell: |
+    asdf plugin add elixir || true
+    asdf plugin add erlang || true
+    asdf plugin add golang || true
+    asdf plugin add ruby || true
+    asdf plugin add nodejs || true
+    asdf plugin add scarb || true
+  ignore_errors: true

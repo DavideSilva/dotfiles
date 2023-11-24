@@ -2,3 +2,4 @@
   roles:
     - { role: 'common', tags: 'shell' }
     - { role: 'neovim', tags: 'neovim' }
+    - { role: 'asdf',   tags: 'shell' }
