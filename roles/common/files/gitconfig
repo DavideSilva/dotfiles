@@ -1,0 +1,18 @@
+[core]
+  excludesfile = /Users/davidesilva/.gitignore_global
+[user]
+  name = Davide Silva
+  email = davidesilva@hey.com
+[color]
+  ui = true
+[push]
+  default = current
+  autoSetupRemote = true
+[pull]
+  rebase = true
+[init]
+  defaultBranch = main
+[submodule]
+  recurse = true
+[rebase]
+  updateRefs = true

@@ -2,3 +2,15 @@
   file:
     path: "{{ansible_env.HOME}}/.config"
     state: directory
+
+- name: link global gitignore
+  file:
+    src: '{{ansible_env.PWD}}/roles/common/files/gitignore_global'
+    dest: '{{ansible_env.HOME}}/.gitignore_global'
+    state: link
+
+- name: link git config
+  file:
+    src: '{{ansible_env.PWD}}/roles/common/files/gitconfig'
+    dest: '{{ansible_env.HOME}}/.gitconfig'
+    state: link
