@@ -3,3 +3,4 @@ erlang 26.1.2
 golang 1.21.4
 ruby 3.2.2
 nodejs 21.2.0
+scarb 2.3.1

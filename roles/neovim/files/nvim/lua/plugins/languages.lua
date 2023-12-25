@@ -35,4 +35,9 @@ return {
   },
   { 'folke/neodev.nvim' },
   { 'vmchale/just-vim' },
+  {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    lazy = false,
+  }
 }

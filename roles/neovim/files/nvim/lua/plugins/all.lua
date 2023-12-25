@@ -77,7 +77,7 @@ return {
     end,
   },
 
-  { 'jose-elias-alvarez/null-ls.nvim' },
+  { 'nvimtools/none-ls.nvim' },
 
   {
     'folke/trouble.nvim',

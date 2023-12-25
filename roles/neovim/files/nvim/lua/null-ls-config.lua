@@ -13,6 +13,6 @@ null_ls.setup({
             extra_filetypes = { 'solidity' },
         }),
         formatting.eslint_d,
-        diagnostics.solhint,
+        -- diagnostics.solhint,
     },
 })

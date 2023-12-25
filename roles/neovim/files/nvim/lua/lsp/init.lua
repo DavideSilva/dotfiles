@@ -71,7 +71,10 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.solidity.setup({})
+--[[ lspconfig.solidity.setup({
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+}) ]]
 
 lspconfig.tsserver.setup({
   on_attach = require('lsp.handlers').on_attach,
@@ -88,6 +91,11 @@ lspconfig.cairo_ls.setup({
 lspconfig.yamlls.setup({})
 
 lspconfig.astro.setup({
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+})
+
+lspconfig.typst_lsp.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
