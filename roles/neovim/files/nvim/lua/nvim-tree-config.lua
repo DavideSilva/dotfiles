@@ -6,6 +6,7 @@ require('nvim-tree').setup({
   hijack_directories = {
     auto_open = true,
   },
+  disable_netrw = true,
   git = { ignore = true },
   view = {
     side = 'right',

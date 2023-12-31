@@ -19,7 +19,11 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('lualine').setup({
-        options = { theme = 'catppuccin' },
+        options = {
+          theme = 'catppuccin',
+          show_filename_only = false,
+          ignore_focus = { "TelescopePrompt", "NvimTree", "TelescopeResults" },
+        },
       })
     end,
   },

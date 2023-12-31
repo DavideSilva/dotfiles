@@ -20,6 +20,7 @@ return {
       require('treesitter-context').setup({})
     end,
   },
+  { 'gcmt/wildfire.vim' },
 
   { 'tomlion/vim-solidity' },
   { 'vyperlang/vim-vyper' },
