@@ -71,8 +71,14 @@ return {
   { 'L3MON4D3/LuaSnip' },
   { 'saadparwaiz1/cmp_luasnip' },
 
-  { 'ggandor/lightspeed.nvim', dependencies = { 'tpope/vim-repeat' } },
-  { 'tpope/vim-surround',      dependencies = { 'tpope/vim-repeat' } },
+  {
+    'ggandor/leap.nvim',
+    dependencies = { 'tpope/vim-repeat' },
+    config = function()
+      require("leap").create_default_mappings()
+    end
+  },
+  { 'tpope/vim-surround',    dependencies = { 'tpope/vim-repeat' } },
 
   {
     'ellisonleao/glow.nvim',
