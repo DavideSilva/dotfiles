@@ -24,20 +24,22 @@ vim.o.list = true
 vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 vim.o.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.listchars = { tab = '>-', trail = '·', extends = '>', precedes = '<' }
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.scrolloff = 10
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-      vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
 })
 
 -- Experimental Lua module loader that improves startup time
