@@ -1,7 +1,14 @@
 return {
   { 'dstein64/vim-startuptime' },
 
-  { 'catppuccin/nvim',               name = 'catppuccin', priority = 1000 },
+  { 'catppuccin/nvim',         name = 'catppuccin', priority = 1000 },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
   { 'christoomey/vim-tmux-navigator' },
 
   {
@@ -78,7 +85,7 @@ return {
       require("leap").create_default_mappings()
     end
   },
-  { 'tpope/vim-surround',    dependencies = { 'tpope/vim-repeat' } },
+  { 'tpope/vim-surround', dependencies = { 'tpope/vim-repeat' } },
 
   {
     'ellisonleao/glow.nvim',
@@ -87,7 +94,27 @@ return {
     end,
   },
 
-  { 'nvimtools/none-ls.nvim' },
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      notify_on_error = false,
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true
+      },
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        javascript = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
+        css = { { "prettierd", "prettier" } },
+        html = { { "prettierd", "prettier" } },
+        json = { { "prettierd", "prettier" } },
+        markdown = { { "prettierd", "prettier" } },
+        svelte = { { "prettierd", "prettier" } },
+      }
+    }
+  },
 
   {
     'folke/trouble.nvim',

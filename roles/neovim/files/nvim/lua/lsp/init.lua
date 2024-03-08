@@ -99,3 +99,8 @@ lspconfig.typst_lsp.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
+
+lspconfig.gopls.setup({
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+})

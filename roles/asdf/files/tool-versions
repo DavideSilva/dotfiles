@@ -1,6 +1,6 @@
 elixir 1.15.7-otp-26
 erlang 26.1.2
-golang 1.21.4
+golang 1.21.5
 ruby 3.2.2
 nodejs 21.2.0
 scarb 2.3.1
