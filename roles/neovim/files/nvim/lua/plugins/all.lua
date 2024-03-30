@@ -1,9 +1,9 @@
 return {
   { 'dstein64/vim-startuptime' },
 
-  { 'catppuccin/nvim',         name = 'catppuccin', priority = 1000 },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     opts = {},
@@ -29,7 +29,7 @@ return {
         options = {
           theme = 'catppuccin',
           show_filename_only = false,
-          ignore_focus = { "TelescopePrompt", "NvimTree", "TelescopeResults" },
+          ignore_focus = { 'TelescopePrompt', 'NvimTree', 'TelescopeResults' },
         },
       })
     end,
@@ -82,8 +82,8 @@ return {
     'ggandor/leap.nvim',
     dependencies = { 'tpope/vim-repeat' },
     config = function()
-      require("leap").create_default_mappings()
-    end
+      require('leap').create_default_mappings()
+    end,
   },
   { 'tpope/vim-surround', dependencies = { 'tpope/vim-repeat' } },
 
@@ -100,20 +100,21 @@ return {
       notify_on_error = false,
       format_on_save = {
         timeout_ms = 500,
-        lsp_fallback = true
+        lsp_fallback = true,
       },
       formatters_by_ft = {
+        css = { { 'prettierd', 'prettier' } },
+        go = { { 'gofmt' } },
+        html = { { 'prettierd', 'prettier' } },
+        javascript = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
         lua = { 'stylua' },
-        javascript = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
-        typescriptreact = { { "prettierd", "prettier" } },
-        css = { { "prettierd", "prettier" } },
-        html = { { "prettierd", "prettier" } },
-        json = { { "prettierd", "prettier" } },
-        markdown = { { "prettierd", "prettier" } },
-        svelte = { { "prettierd", "prettier" } },
-      }
-    }
+        markdown = { { 'prettierd', 'prettier' } },
+        svelte = { { 'prettierd', 'prettier' } },
+        typescript = { { 'prettierd', 'prettier' } },
+        typescriptreact = { { 'prettierd', 'prettier' } },
+      },
+    },
   },
 
   {
