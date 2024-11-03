@@ -46,6 +46,18 @@ require('rose-pine').setup({
     h5 = 'pine',
     h6 = 'foam',
   },
+
+  highlight_groups = {
+    CurSearch = { fg = 'base', bg = 'leaf', inherit = false },
+    Search = { fg = 'text', bg = 'leaf', blend = 20, inherit = false },
+
+    TelescopeBorder = { fg = 'highlight_high', bg = 'none' },
+    TelescopeNormal = { bg = 'none' },
+    TelescopePromptNormal = { bg = 'base' },
+    TelescopeResultsNormal = { fg = 'subtle', bg = 'none' },
+    TelescopeSelection = { fg = 'text', bg = 'base' },
+    TelescopeSelectionCaret = { fg = 'rose', bg = 'rose' },
+  },
 })
 
 vim.cmd('colorscheme rose-pine')
