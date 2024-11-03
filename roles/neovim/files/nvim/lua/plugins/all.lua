@@ -9,6 +9,8 @@ return {
     opts = {},
   },
 
+  { 'rose-pine/neovim', name = 'rose-pine', priority = 1000 },
+
   { 'christoomey/vim-tmux-navigator' },
 
   {
@@ -24,10 +26,11 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    event = 'ColorScheme',
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'catppuccin',
+          theme = 'rose-pine',
           show_filename_only = false,
           ignore_focus = { 'TelescopePrompt', 'NvimTree', 'TelescopeResults' },
         },
@@ -79,13 +82,11 @@ return {
   { 'saadparwaiz1/cmp_luasnip' },
 
   {
-    'ggandor/leap.nvim',
-    dependencies = { 'tpope/vim-repeat' },
+    'echasnovski/mini.nvim',
     config = function()
-      require('leap').create_default_mappings()
+      require('mini.surround').setup()
     end,
   },
-  { 'tpope/vim-surround', dependencies = { 'tpope/vim-repeat' } },
 
   {
     'ellisonleao/glow.nvim',
@@ -103,16 +104,17 @@ return {
         lsp_fallback = true,
       },
       formatters_by_ft = {
-        css = { { 'prettierd', 'prettier' } },
-        go = { { 'gofmt' } },
-        html = { { 'prettierd', 'prettier' } },
-        javascript = { { 'prettierd', 'prettier' } },
-        json = { { 'prettierd', 'prettier' } },
+        css = { 'prettierd', 'prettier' },
+        go = { 'gofmt' },
+        html = { 'prettierd', 'prettier' },
+        javascript = { 'prettierd', 'prettier' },
+        json = { 'prettierd', 'prettier' },
         lua = { 'stylua' },
-        markdown = { { 'prettierd', 'prettier' } },
-        svelte = { { 'prettierd', 'prettier' } },
-        typescript = { { 'prettierd', 'prettier' } },
-        typescriptreact = { { 'prettierd', 'prettier' } },
+        markdown = { 'prettierd', 'prettier' },
+        solidity = { 'forge_fmt' },
+        svelte = { 'prettierd', 'prettier' },
+        typescript = { 'prettierd', 'prettier' },
+        typescriptreact = { 'prettierd', 'prettier' },
       },
     },
   },
@@ -148,4 +150,6 @@ return {
       require('fidget').setup()
     end,
   },
+
+  { 'jannis-baum/vivify.vim' },
 }

@@ -71,12 +71,12 @@ lspconfig.lua_ls.setup({
   },
 })
 
---[[ lspconfig.solidity.setup({
+lspconfig.solidity_ls.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
-}) ]]
+})
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
@@ -84,6 +84,11 @@ lspconfig.tsserver.setup({
 lspconfig.cairo_ls.setup({
   cmd = { 'scarb', 'cairo-language-server' },
   root_dir = lspconfig.util.root_pattern('Scarb.toml', 'protostar.toml'),
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+})
+
+lspconfig.terraformls.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
@@ -106,6 +111,11 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.tailwindcss.setup({
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+})
+
+lspconfig.svelte.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })

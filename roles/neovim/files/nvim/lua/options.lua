@@ -27,7 +27,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.expandtab = true
 vim.opt.termguicolors = true
-vim.opt.listchars = { tab = '>-', trail = '·', extends = '>', precedes = '<' }
+vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
