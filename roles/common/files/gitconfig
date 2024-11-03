@@ -54,5 +54,5 @@
   enabled = true
 [maintenance]
   repo = /Users/davidesilva/Developer/blog.davidesilva.dev
-  repo = /Users/davidesilva/Developer/iron
+  repo = /Users/davidesilva/Developer/ethui
   repo = /Users/davidesilva/Developer/dotfiles
