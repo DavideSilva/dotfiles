@@ -7,6 +7,7 @@ return {
       require('toggleterm').setup({
         highlights = highlights,
         open_mapping = [[<leader>y]],
+        insert_mappings = false,
       })
     end,
   },

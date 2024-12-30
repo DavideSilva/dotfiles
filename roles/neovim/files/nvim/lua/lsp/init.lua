@@ -100,7 +100,7 @@ lspconfig.astro.setup({
   capabilities = require('lsp.handlers').capabilities,
 })
 
-lspconfig.typst_lsp.setup({
+lspconfig.tinymist.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
@@ -116,6 +116,11 @@ lspconfig.tailwindcss.setup({
 })
 
 lspconfig.svelte.setup({
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+})
+
+lspconfig.rnix.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })

@@ -22,7 +22,15 @@ return {
       })
     end,
   },
-  { 'gcmt/wildfire.vim' },
+
+  {
+    'sustech-data/wildfire.nvim',
+    event = 'VeryLazy',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('wildfire').setup()
+    end,
+  },
 
   { 'tomlion/vim-solidity' },
   { 'vyperlang/vim-vyper' },

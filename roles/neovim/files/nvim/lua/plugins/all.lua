@@ -111,6 +111,7 @@ return {
         json = { 'prettierd', 'prettier' },
         lua = { 'stylua' },
         markdown = { 'prettierd', 'prettier' },
+        nix = { 'nixfmt' },
         solidity = { 'forge_fmt' },
         svelte = { 'prettierd', 'prettier' },
         typescript = { 'prettierd', 'prettier' },
