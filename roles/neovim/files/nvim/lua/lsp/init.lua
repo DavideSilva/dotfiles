@@ -31,21 +31,21 @@ lspconfig.rust_analyzer.setup({
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
   filetypes = { 'rust' },
-  settings = {
-    ['rust-analyzer'] = {
-      checkOnSave = {
-        allFeatures = true,
-        overrideCommand = {
-          'cargo',
-          'clippy',
-          '--workspace',
-          '--message-format=json',
-          '--all-targets',
-          '--all-features',
-        },
-      },
-    },
-  },
+  -- settings = {
+  --   ['rust-analyzer'] = {
+  --     checkOnSave = {
+  --       allFeatures = true,
+  --       overrideCommand = {
+  --         'cargo',
+  --         'clippy',
+  --         '--workspace',
+  --         '--message-format=json',
+  --         '--all-targets',
+  --         '--all-features',
+  --       },
+  --     },
+  --   },
+  -- },
 })
 
 lspconfig.solargraph.setup({

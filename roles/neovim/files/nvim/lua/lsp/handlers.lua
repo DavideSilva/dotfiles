@@ -36,6 +36,12 @@ M.on_attach = function(client, bufnr)
   -- vim.keymap.set('n', '<C-u>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", bufopts)
   -- vim.keymap.set('n', '<C-d>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", bufopts)
 
+  if vim.lsp.inlay_hint then
+    vim.keymap.set('n', '<leader>g', function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
+    end, bufopts)
+  end
+
   if client.name == 'ts_ls' then
     client.server_capabilities.document_formatting = false
   end
