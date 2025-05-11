@@ -1,6 +1,7 @@
 local M = {}
 
 M.on_attach = function(client, bufnr)
+  local diag_float_grp = vim.api.nvim_create_augroup('DiagnosticFloat', { clear = true })
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
     callback = function()
@@ -14,24 +15,27 @@ M.on_attach = function(client, bufnr)
       }
       vim.diagnostic.open_float(nil, opts)
     end,
+    group = diag_float_grp,
   })
+
+  vim.diagnostic.config({ underline = false })
 
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
   -- LSP Mappings
-  vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', bufopts)
-  vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR><cmd>norm zz<CR>', bufopts)
-  vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', bufopts)
-  vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', bufopts)
-  vim.keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', bufopts)
-  vim.keymap.set('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', bufopts)
-  vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', ':Lspsaga code_action<CR>', bufopts)
-  vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', bufopts)
-  vim.keymap.set('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', bufopts)
-  vim.keymap.set('n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>', bufopts)
-  vim.keymap.set('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', bufopts)
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, bufopts)
+  vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, bufopts)
+  vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, bufopts)
+  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, bufopts)
   vim.keymap.set('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', bufopts)
   -- vim.keymap.set('n', '<C-u>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", bufopts)
   -- vim.keymap.set('n', '<C-d>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", bufopts)

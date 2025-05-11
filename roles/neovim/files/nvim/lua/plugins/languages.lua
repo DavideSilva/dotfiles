@@ -32,6 +32,12 @@ return {
     end,
   },
 
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+
   { 'tomlion/vim-solidity' },
   { 'vyperlang/vim-vyper' },
   { 'slim-template/vim-slim' },
@@ -44,8 +50,8 @@ return {
       vim.g.rustfmt_autosave = 1
     end,
   },
+
   { 'folke/neodev.nvim' },
-  { 'vmchale/just-vim' },
   {
     'kaarmu/typst.vim',
     ft = 'typst',

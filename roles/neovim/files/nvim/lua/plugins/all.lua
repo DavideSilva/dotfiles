@@ -44,6 +44,7 @@ return {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      'nvim-telescope/telescope-live-grep-args.nvim',
     },
   },
 
@@ -60,12 +61,16 @@ return {
   { 'neovim/nvim-lspconfig' },
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
+  { 'chrisgrieser/nvim-lsp-endhints', event = 'LspAttach', opts = {} },
   {
     'glepnir/lspsaga.nvim',
     config = function()
       require('lspsaga').setup({
         code_action_prompt = {
           sign = false,
+        },
+        lightbulb = {
+          virtual_text = false,
         },
       })
     end,

@@ -12,54 +12,61 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-  ensure_installed = { 'elixirls', 'lua_ls', 'rust_analyzer', 'solargraph' },
+  ensure_installed = { 'elixirls', 'lua_ls', 'rust_analyzer' },
 })
 
-local lspconfig = require('lspconfig')
-
-lspconfig.elixirls.setup({
+vim.lsp.config('elixirls', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
 
-lspconfig.gopls.setup({
+vim.lsp.config('gopls', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
 
-lspconfig.rust_analyzer.setup({
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-  filetypes = { 'rust' },
-  -- settings = {
-  --   ['rust-analyzer'] = {
-  --     checkOnSave = {
-  --       allFeatures = true,
-  --       overrideCommand = {
-  --         'cargo',
-  --         'clippy',
-  --         '--workspace',
-  --         '--message-format=json',
-  --         '--all-targets',
-  --         '--all-features',
-  --       },
-  --     },
-  --   },
-  -- },
-})
+-- require('mason-lspconfig').setup_handlers({
+--   ['rust_analyzer'] = function() end,
+-- })
 
-lspconfig.solargraph.setup({
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-  settings = {
-    solargraph = {
-      diagnostics = true,
-      formatting = true,
+vim.g.rustaceanvim = {
+  server = {
+    on_attach = require('lsp.handlers').on_attach,
+    capabilities = require('lsp.handlers').capabilities,
+    default_settings = {
+      ['rust-analyzer'] = {
+        checkOnSave = true,
+      },
+      cargo = {
+        allFeatures = true,
+        targetDir = true,
+      },
     },
   },
-})
+}
 
-lspconfig.lua_ls.setup({
+-- lspconfig.rust_analyzer.setup({
+--   on_attach = require('lsp.handlers').on_attach,
+--   capabilities = require('lsp.handlers').capabilities,
+--   filetypes = { 'rust' },
+--   -- settings = {
+--   --   ['rust-analyzer'] = {
+--   --     checkOnSave = {
+--   --       allFeatures = true,
+--   --       overrideCommand = {
+--   --         'cargo',
+--   --         'clippy',
+--   --         '--workspace',
+--   --         '--message-format=json',
+--   --         '--all-targets',
+--   --         '--all-features',
+--   --       },
+--   --     },
+--   --   },
+--   -- },
+-- })
+
+vim.lsp.config('lua_ls', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
   settings = {
@@ -71,56 +78,42 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.solidity_ls.setup({
+vim.lsp.config('solidity_ls', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
 
-lspconfig.ts_ls.setup({
+vim.lsp.config('ts_ls', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
 
-lspconfig.cairo_ls.setup({
-  cmd = { 'scarb', 'cairo-language-server' },
-  root_dir = lspconfig.util.root_pattern('Scarb.toml', 'protostar.toml'),
+vim.lsp.config('astro', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
 
-lspconfig.terraformls.setup({
+-- lspconfig.tailwindcss.setup({
+--   on_attach = require('lsp.handlers').on_attach,
+--   capabilities = require('lsp.handlers').capabilities,
+--   settings = {
+--     tailwindCSS = {
+--       filetypes_include = { 'heex' },
+--       includeLanguages = {
+--         elixir = 'html-eex',
+--         eelixir = 'html-eex',
+--         heex = 'html',
+--       },
+--     },
+--   },
+-- })
+
+vim.lsp.config('svelte', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
 
-lspconfig.yamlls.setup({})
-
-lspconfig.astro.setup({
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-})
-
-lspconfig.tinymist.setup({
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-})
-
-lspconfig.gopls.setup({
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-})
-
-lspconfig.tailwindcss.setup({
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-})
-
-lspconfig.svelte.setup({
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-})
-
-lspconfig.rnix.setup({
+vim.lsp.config('rnix', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
