@@ -44,7 +44,7 @@
   # 20% green 80% base
   plus-style = "syntax #394545"
   # Should match the name of the bat theme
-  syntax-theme = "Catppuccin-mocha"
+  syntax-theme = "Coldark-Dark"
   navigate = true
 [merge]
   conflictstyle = diff3

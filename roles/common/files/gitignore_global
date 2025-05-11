@@ -1,3 +1,5 @@
 .envrc
+.mise.toml
 .DS_Store
 **/target/*
+qa/*
