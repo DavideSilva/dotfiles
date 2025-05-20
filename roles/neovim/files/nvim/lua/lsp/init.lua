@@ -20,15 +20,6 @@ vim.lsp.config('elixirls', {
   capabilities = require('lsp.handlers').capabilities,
 })
 
-vim.lsp.config('gopls', {
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-})
-
--- require('mason-lspconfig').setup_handlers({
---   ['rust_analyzer'] = function() end,
--- })
-
 vim.g.rustaceanvim = {
   server = {
     on_attach = require('lsp.handlers').on_attach,
@@ -44,27 +35,6 @@ vim.g.rustaceanvim = {
     },
   },
 }
-
--- lspconfig.rust_analyzer.setup({
---   on_attach = require('lsp.handlers').on_attach,
---   capabilities = require('lsp.handlers').capabilities,
---   filetypes = { 'rust' },
---   -- settings = {
---   --   ['rust-analyzer'] = {
---   --     checkOnSave = {
---   --       allFeatures = true,
---   --       overrideCommand = {
---   --         'cargo',
---   --         'clippy',
---   --         '--workspace',
---   --         '--message-format=json',
---   --         '--all-targets',
---   --         '--all-features',
---   --       },
---   --     },
---   --   },
---   -- },
--- })
 
 vim.lsp.config('lua_ls', {
   on_attach = require('lsp.handlers').on_attach,
@@ -92,6 +62,8 @@ vim.lsp.config('astro', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
+
+vim.lsp.config('tailwindcss', {})
 
 -- lspconfig.tailwindcss.setup({
 --   on_attach = require('lsp.handlers').on_attach,
