@@ -12,7 +12,7 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-  ensure_installed = { 'elixirls', 'lua_ls', 'rust_analyzer' },
+  ensure_installed = { 'elixirls', 'lua_ls' },
 })
 
 vim.lsp.config('elixirls', {
@@ -21,6 +21,9 @@ vim.lsp.config('elixirls', {
 })
 
 vim.g.rustaceanvim = {
+  cmd = function()
+    return { 'rust-analyzer' }
+  end,
   server = {
     on_attach = require('lsp.handlers').on_attach,
     capabilities = require('lsp.handlers').capabilities,
