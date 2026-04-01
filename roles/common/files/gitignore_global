@@ -1,5 +1,8 @@
+CLAUDE.md
+.claude
 .envrc
 .mise.toml
 .DS_Store
 **/target/*
 qa/*
+test-forge/*

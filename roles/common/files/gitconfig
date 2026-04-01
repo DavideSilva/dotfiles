@@ -46,8 +46,6 @@
   # Should match the name of the bat theme
   syntax-theme = "Coldark-Dark"
   navigate = true
-[merge]
-  conflictstyle = diff3
 [diff]
   colorMoved = default
 [rerere]
