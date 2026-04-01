@@ -29,7 +29,7 @@ vim.o.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

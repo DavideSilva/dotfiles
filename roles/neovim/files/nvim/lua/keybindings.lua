@@ -31,6 +31,14 @@ map('n', '<leader><cr>', ':nohlsearch<CR>', { silent = true, noremap = true })
 -- open tig on a tmux pane
 map('n', '<leader>gh', ':silent execute "!tmux new-window tig " . expand("%:p")<CR>', { silent = true, noremap = true })
 
+-- open tuicr on a tmux pane
+map(
+  'n',
+  '<leader>gt',
+  ':silent execute "!tmux new-window tuicr " . expand("%:p")<CR>',
+  { silent = true, noremap = true }
+)
+
 -- open current buffer on a vertical split
 map('n', 'vv', '<C-w>v', { silent = true, noremap = true })
 

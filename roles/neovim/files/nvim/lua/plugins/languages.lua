@@ -1,4 +1,8 @@
 return {
+  -- {
+  --   'github/copilot.vim',
+  -- },
+
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',

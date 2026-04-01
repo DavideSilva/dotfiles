@@ -12,14 +12,14 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-  ensure_installed = { 'elixirls', 'lua_ls' },
+  ensure_installed = { 'lua_ls' },
 })
 
-vim.lsp.config('elixirls', {
-  on_attach = require('lsp.handlers').on_attach,
-  capabilities = require('lsp.handlers').capabilities,
-})
-
+-- vim.lsp.config('elixirls', {
+--   on_attach = require('lsp.handlers').on_attach,
+--   capabilities = require('lsp.handlers').capabilities,
+-- })
+--
 vim.g.rustaceanvim = {
   cmd = function()
     return { 'rust-analyzer' }
@@ -61,12 +61,17 @@ vim.lsp.config('ts_ls', {
   capabilities = require('lsp.handlers').capabilities,
 })
 
+vim.lsp.config('terraformls', {
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+})
+
 vim.lsp.config('astro', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
 
-vim.lsp.config('tailwindcss', {})
+-- vim.lsp.config('tailwindcss', {})
 
 -- lspconfig.tailwindcss.setup({
 --   on_attach = require('lsp.handlers').on_attach,
@@ -83,6 +88,11 @@ vim.lsp.config('tailwindcss', {})
 --   },
 -- })
 
+vim.lsp.config('zls', {
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+})
+
 vim.lsp.config('svelte', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
@@ -92,3 +102,14 @@ vim.lsp.config('rnix', {
   on_attach = require('lsp.handlers').on_attach,
   capabilities = require('lsp.handlers').capabilities,
 })
+
+vim.lsp.config('expert', {
+  on_attach = require('lsp.handlers').on_attach,
+  capabilities = require('lsp.handlers').capabilities,
+  cmd = { 'expert' },
+  root_markers = { 'mix.exs', '.git' },
+  filetypes = { 'elixir', 'eelixir', 'heex' },
+})
+
+-- Enable all configured LSP servers
+vim.lsp.enable({ 'expert', 'lua_ls', 'solidity_ls', 'ts_ls', 'terraformls', 'astro', 'svelte', 'rnix', 'zls' })
