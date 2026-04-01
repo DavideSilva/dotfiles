@@ -25,8 +25,6 @@ vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
-vim.o.expandtab = true
-vim.opt.termguicolors = true
 vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

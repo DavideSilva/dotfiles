@@ -47,20 +47,10 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == 'ts_ls' then
-    client.server_capabilities.document_formatting = false
-  end
-
-  if client.server_capabilities.document_formatting then
-    vim.api.nvim_command('autocmd BufWritePre <buffer> lua vim.lsp.buf.format()')
+    client.server_capabilities.documentFormattingProvider = false
   end
 end
 
-local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-if not status_ok then
-  return
-end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+M.capabilities = require('blink.cmp').get_lsp_capabilities()
 
 return M

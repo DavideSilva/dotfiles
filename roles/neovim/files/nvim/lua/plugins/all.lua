@@ -48,13 +48,6 @@ return {
     },
   },
 
-  {
-    'junegunn/fzf',
-    config = function(plugin)
-      vim.opt.rtp:append(plugin.dir .. '/usr/local/opt/fzf')
-    end,
-  },
-  { 'junegunn/fzf.vim' },
 
   { 'tpope/vim-projectionist' },
 
@@ -77,14 +70,6 @@ return {
   },
   { 'onsails/lspkind-nvim' },
 
-  { 'hrsh7th/nvim-cmp' },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/cmp-buffer' },
-  { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-cmdline' },
-
-  { 'L3MON4D3/LuaSnip' },
-  { 'saadparwaiz1/cmp_luasnip' },
 
   {
     'echasnovski/mini.nvim',
@@ -110,18 +95,18 @@ return {
         lsp_fallback = true,
       },
       formatters_by_ft = {
-        css = { 'prettierd', 'prettier' },
+        css = { 'prettierd', 'prettier', stop_after_first = true },
         go = { 'gofmt' },
-        html = { 'prettierd', 'prettier' },
-        javascript = { 'prettierd', 'prettier' },
-        json = { 'prettierd', 'prettier' },
+        html = { 'prettierd', 'prettier', stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        json = { 'prettierd', 'prettier', stop_after_first = true },
         lua = { 'stylua' },
-        markdown = { 'prettierd', 'prettier' },
+        markdown = { 'prettierd', 'prettier', stop_after_first = true },
         nix = { 'nixfmt' },
         solidity = { 'forge_fmt' },
-        svelte = { 'prettierd', 'prettier' },
-        typescript = { 'prettierd', 'prettier' },
-        typescriptreact = { 'prettierd', 'prettier' },
+        svelte = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -137,12 +122,6 @@ return {
   -- replace with https://github.com/nvim-neotest/neotest
   { 'vim-test/vim-test' },
 
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
-  },
 
   {
     'folke/todo-comments.nvim',
@@ -152,7 +131,6 @@ return {
   {
     'j-hui/fidget.nvim',
     dependencies = { 'neovim/nvim-lspconfig' },
-    tag = 'legacy',
     config = function()
       require('fidget').setup()
     end,
