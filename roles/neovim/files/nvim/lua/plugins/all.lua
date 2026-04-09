@@ -1,14 +1,6 @@
 return {
   { 'dstein64/vim-startuptime' },
 
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-  {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-
   { 'rose-pine/neovim', name = 'rose-pine', priority = 1000 },
 
   { 'christoomey/vim-tmux-navigator' },
@@ -41,13 +33,11 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-      'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       'nvim-telescope/telescope-live-grep-args.nvim',
     },
   },
-
 
   { 'tpope/vim-projectionist' },
 
@@ -70,7 +60,6 @@ return {
   },
   { 'onsails/lspkind-nvim' },
 
-
   {
     'echasnovski/mini.nvim',
     config = function()
@@ -92,7 +81,7 @@ return {
       notify_on_error = false,
       format_on_save = {
         timeout_ms = 500,
-        lsp_fallback = true,
+        lsp_format = 'fallback',
       },
       formatters_by_ft = {
         css = { 'prettierd', 'prettier', stop_after_first = true },
@@ -121,7 +110,6 @@ return {
 
   -- replace with https://github.com/nvim-neotest/neotest
   { 'vim-test/vim-test' },
-
 
   {
     'folke/todo-comments.nvim',
