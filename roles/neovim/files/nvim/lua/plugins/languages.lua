@@ -5,19 +5,45 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     build = ':TSUpdate',
+    lazy = false,
     config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = 'all',
-        indent = { enable = true },
-        highlight = { enable = true },
-        incremental_selection = { enable = true },
-        textobjects = { enable = true },
+      require('nvim-treesitter').install({
+        'astro', 'bash', 'c', 'comment', 'cpp', 'css', 'diff', 'dockerfile',
+        'eex', 'elixir', 'erlang', 'git_rebase', 'gitcommit', 'gitignore',
+        'go', 'gomod', 'gosum', 'graphql', 'heex', 'html', 'javascript',
+        'jsdoc', 'json', 'lua', 'luadoc', 'luap', 'make', 'markdown',
+        'markdown_inline', 'mermaid', 'nix', 'php', 'php_only', 'python',
+        'query', 'regex', 'ruby', 'rust', 'scss', 'solidity', 'sql',
+        'svelte', 'toml', 'tsx', 'typescript', 'typst', 'vim', 'vimdoc',
+        'yaml',
       })
+
+      local function start_treesitter(buf)
+        local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype)
+        if lang and pcall(vim.treesitter.start, buf, lang) then
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end
+
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(args) start_treesitter(args.buf) end,
+      })
+
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype ~= '' then
+          start_treesitter(buf)
+        end
+      end
     end,
   },
 
-  { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
   {
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
