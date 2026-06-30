@@ -59,3 +59,5 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[coderabbit]
+	machineId = cli/8b9914110c414bcbb05b37e69f867f37
