@@ -64,8 +64,23 @@ return {
 
   {
     'mrcjkb/rustaceanvim',
-    version = '^6', -- Recommended
+    version = '^9', -- Recommended
     lazy = false, -- This plugin is already lazy
+  },
+
+  {
+    'mfussenegger/nvim-lint',
+    event = { 'BufReadPost', 'BufWritePost' },
+    config = function()
+      require('lint').linters_by_ft = { elixir = { 'credo' } }
+      vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWritePost' }, {
+        group = vim.api.nvim_create_augroup('Lint', { clear = true }),
+        callback = function()
+          -- projects without credo as a dependency make `mix credo` fail; stay quiet
+          require('lint').try_lint(nil, { ignore_errors = true })
+        end,
+      })
+    end,
   },
 
   { 'tomlion/vim-solidity' },
@@ -73,15 +88,12 @@ return {
   { 'slim-template/vim-slim' },
   { 'slime-lang/vim-slime-syntax' },
   { 'elixir-editors/vim-elixir' },
-  {
-    'rust-lang/rust.vim',
-    ft = 'rust',
-    config = function()
-      vim.g.rustfmt_autosave = 1
-    end,
-  },
 
-  { 'folke/neodev.nvim' },
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {},
+  },
   {
     'kaarmu/typst.vim',
     ft = 'typst',

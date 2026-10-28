@@ -1,3 +1,6 @@
+-- cache Lua modules; must run before any require
+vim.loader.enable()
+
 require('options')
 require('keybindings')
 require('plugin-manager')

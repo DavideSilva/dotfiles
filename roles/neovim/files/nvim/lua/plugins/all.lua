@@ -10,9 +10,6 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
-    config = function()
-      require('nvim-tree').setup({})
-    end,
   },
 
   {
@@ -23,7 +20,6 @@ return {
       require('lualine').setup({
         options = {
           theme = 'rose-pine',
-          show_filename_only = false,
           ignore_focus = { 'TelescopePrompt', 'NvimTree', 'TelescopeResults' },
         },
       })
@@ -85,7 +81,7 @@ return {
       },
       formatters_by_ft = {
         css = { 'prettierd', 'prettier', stop_after_first = true },
-        go = { 'gofmt' },
+        go = { 'goimports', 'gofumpt' },
         html = { 'prettierd', 'prettier', stop_after_first = true },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         json = { 'prettierd', 'prettier', stop_after_first = true },
@@ -114,6 +110,7 @@ return {
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
   },
 
   {
