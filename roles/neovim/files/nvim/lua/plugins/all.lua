@@ -41,20 +41,26 @@ return {
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'chrisgrieser/nvim-lsp-endhints', event = 'LspAttach', opts = {} },
+
   {
-    'glepnir/lspsaga.nvim',
-    config = function()
-      require('lspsaga').setup({
-        code_action_prompt = {
-          sign = false,
-        },
-        lightbulb = {
-          virtual_text = false,
-        },
-      })
-    end,
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      on_attach = function(bufnr)
+        local gs = require('gitsigns')
+        local function map(lhs, rhs, mode)
+          vim.keymap.set(mode or 'n', lhs, rhs, { buffer = bufnr, silent = true })
+        end
+
+        map(']c', function() gs.nav_hunk('next') end)
+        map('[c', function() gs.nav_hunk('prev') end)
+        map('<leader>hs', gs.stage_hunk)
+        map('<leader>hr', gs.reset_hunk)
+        map('<leader>hp', gs.preview_hunk)
+        map('<leader>hb', function() gs.blame_line({ full = true }) end)
+        map('ih', gs.select_hunk, { 'o', 'x' })
+      end,
+    },
   },
-  { 'onsails/lspkind-nvim' },
 
   {
     'echasnovski/mini.nvim',

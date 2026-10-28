@@ -41,11 +41,6 @@ return {
                   if dev_icon then
                     icon = dev_icon
                   end
-                else
-                  local lspkind_ok, lspkind = pcall(require, 'lspkind')
-                  if lspkind_ok and lspkind.symbol_map and lspkind.symbol_map[ctx.kind] then
-                    icon = lspkind.symbol_map[ctx.kind]
-                  end
                 end
 
                 return icon .. ctx.icon_gap
