@@ -1,0 +1,51 @@
+alias c="claude"
+alias v="nvim"
+function dev() {
+  if [ $# -eq 0 ]; then
+    nix run "$HOME/Developer/dotfiles_nix"
+  else
+    local cmd="$1"; shift
+    nix run "$HOME/Developer/dotfiles_nix#$cmd" -- "$@"
+  fi
+}
+alias ls="eza"
+alias ts="tmux new-session -s"
+alias tl="tmux list-sessions"
+alias ta="tmux attach -t"
+
+alias mr="mise run"
+
+alias g="git"
+alias ga="git add"
+alias gb="git branch"
+alias gbd="git branch --delete"
+alias gbD="git branch --delete --force"
+alias gc="git commit"
+alias gcb="git checkout -b"
+alias gco="git checkout"
+alias gcm="git checkout main"
+gcl() {
+  git branch --format='%(refname:short)' \
+    | grep -vFx "$(git branch --show-current)" \
+    | xargs -P8 -I{} sh -c 'gh pr list --state merged --head "$1" --limit 1 --json headRefName --jq ".[].headRefName"' _ {} \
+    | xargs -r git branch -D
+}
+alias gd="git diff"
+alias gdm="git diff main"
+alias ggg="git fetch --prune && git rebase"
+alias glg="git log --stat"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gst="git status"
+alias gsta="git stash push"
+alias gstl="git stash list"
+alias gstp="git stash pop"
+alias gsts="git stash show --text"
+alias grb="git rebase"
+alias grba="git rebase --abort"
+alias grbc="git rebase --continue"
+alias grbi="git rebase --interactive"
+
+function gch() {
+  git checkout "$(git branch | fzf | tr -d '[:space:]')"
+}

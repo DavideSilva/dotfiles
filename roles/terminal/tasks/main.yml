@@ -1,0 +1,10 @@
+- name: create ghostty config directory
+  file:
+    path: "{{ansible_env.HOME}}/.config/ghostty"
+    state: directory
+
+- name: link ghostty config
+  file:
+    src: '{{ansible_env.PWD}}/roles/terminal/files/ghostty'
+    dest: '{{ansible_env.HOME}}/.config/ghostty/config'
+    state: link

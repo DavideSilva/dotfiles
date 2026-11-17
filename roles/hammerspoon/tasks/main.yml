@@ -1,0 +1,11 @@
+- name: create hammerspoon directory
+  file:
+    path: "{{ansible_env.HOME}}/.hammerspoon"
+    state: directory
+
+- name: link hammerspoon config
+  file:
+    src: '{{ansible_env.PWD}}/roles/hammerspoon/files/{{item}}'
+    dest: '{{ansible_env.HOME}}/.hammerspoon/{{item}}'
+    state: link
+  loop: [init.lua, Spoons]

@@ -1,0 +1,22 @@
+- name: link tmux config
+  file:
+    src: '{{ansible_env.PWD}}/roles/tmux/files/tmux.conf'
+    dest: '{{ansible_env.HOME}}/.tmux.conf'
+    state: link
+
+- name: create tmux directory
+  file:
+    path: "{{ansible_env.HOME}}/.tmux/plugins"
+    state: directory
+
+- name: link tmux splits
+  file:
+    src: '{{ansible_env.PWD}}/roles/tmux/files/tmux/tmux.conf.splits'
+    dest: '{{ansible_env.HOME}}/.tmux/tmux.conf.splits'
+    state: link
+
+- name: install tpm
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: '{{ansible_env.HOME}}/.tmux/plugins/tpm'
+    update: false

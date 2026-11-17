@@ -1,0 +1,13 @@
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+. $HOME/.aliases
+
+export CDPATH=".:$HOME:$HOME/Developer"
+export EDITOR=nvim
+export VISUAL="$EDITOR"
+export GIT_EDITOR="$EDITOR"
+export SVN_EDITOR="$EDITOR"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export DIRENV_LOG_FORMAT=
+export HOMEBREW_NO_ENV_HINTS=true

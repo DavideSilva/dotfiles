@@ -1,0 +1,6 @@
+[tools]
+go = "latest"
+bun = "latest"
+
+[settings]
+experimental = true

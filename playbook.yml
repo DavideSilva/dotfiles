@@ -1,5 +1,9 @@
 - hosts: all
   roles:
-    - { role: 'common', tags: 'shell' }
-    - { role: 'neovim', tags: 'neovim' }
-    - { role: 'asdf',   tags: 'shell' }
+    - { role: 'common',      tags: 'shell' }
+    - { role: 'zsh',         tags: 'shell' }
+    - { role: 'tmux',        tags: 'tmux' }
+    - { role: 'terminal',    tags: 'terminal' }
+    - { role: 'hammerspoon', tags: 'hammerspoon' }
+    - { role: 'neovim',      tags: 'neovim' }
+    - { role: 'asdf',        tags: 'shell' }

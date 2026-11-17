@@ -1,0 +1,22 @@
+- name: create config directories
+  file:
+    path: "{{ansible_env.HOME}}/.config/{{item}}"
+    state: directory
+  loop: [mise, atuin]
+
+- name: link zsh files
+  file:
+    src: '{{ansible_env.PWD}}/roles/zsh/files/{{item}}'
+    dest: '{{ansible_env.HOME}}/.{{item}}'
+    state: link
+  loop: [zshrc, zshenv, zprofile, aliases]
+
+- name: link tool configs
+  file:
+    src: '{{ansible_env.PWD}}/roles/zsh/files/{{item.src}}'
+    dest: '{{ansible_env.HOME}}/.config/{{item.dest}}'
+    state: link
+  loop:
+    - { src: starship.toml, dest: starship.toml }
+    - { src: mise.toml, dest: mise/config.toml }
+    - { src: atuin.toml, dest: atuin/config.toml }

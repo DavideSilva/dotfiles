@@ -1,5 +1,5 @@
 [core]
-  excludesfile = /Users/davidesilva/.gitignore_global
+  excludesfile = ~/.gitignore_global
   ; pager = delta
 [user]
   name = Davide Silva
@@ -61,3 +61,6 @@
 	clean = git-lfs clean -- %f
 [coderabbit]
 	machineId = cli/8b9914110c414bcbb05b37e69f867f37
+# per-machine overrides (e.g. work email); must stay last
+[include]
+	path = ~/.gitconfig.local
